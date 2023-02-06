@@ -2,3 +2,5 @@
 
 echo "Installing startup script"
 ./loach_startup/install.sh
+
+./alacritty/install.sh
