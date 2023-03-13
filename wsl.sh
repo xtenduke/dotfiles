@@ -4,6 +4,7 @@
 ./neovim/install.sh
 ./git/install.sh
 ./tmux/install.sh
+./zsh/install.sh
 
 # Enable systemctl
 printf "[boot]\nsystemd=true" | sudo tee -a /etc/wsl.conf
