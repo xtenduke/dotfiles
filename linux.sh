@@ -8,3 +8,4 @@
 ./neovim/install.sh
 ./tmux/install.sh
 ./zsh/install.sh
+./nvm/install.sh
