@@ -19,3 +19,13 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+
+# Load system specific zsh file
+if [ -f ~/.zshrc_system ]; then
+    source ~/.zshrc_system
+fi
+
+# Hey YOU - Don't add non generic things here!
