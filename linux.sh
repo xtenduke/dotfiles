@@ -1,7 +1,5 @@
 #!/bin/bash
 
-./loach_startup/install.sh
-
 ./alacritty/install.sh
 ./nvim/install.sh
 ./git/install.sh
