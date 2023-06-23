@@ -28,6 +28,8 @@ set nostartofline       " Do not jump to first character with page commands.
 set noerrorbells                " No beeps
 set backspace=indent,eol,start  " Makes backspace key more powerful.
 set showcmd                     " Show me what I'm typing
+set autoindent
+set noexpandtab
 set tabstop=4 "4 space tabls
 set shiftwidth=4
 set showmode                    " Show current mode.
@@ -105,12 +107,13 @@ Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 call plug#end()
 
+" set list
 " Tell Vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines. VERY useful!
-if &listchars ==# 'eol:$'
+"if &listchars ==# 'eol:$'
   " set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-  set listchars=tab:>\ ,extends:>,precedes:<,nbsp:+
-endif
+"  set listchars=tab:>\ ,extends:>,precedes:<,nbsp:+
+"endif
 
 " nerdtree config
 map <C-n> :NERDTreeToggle<CR>
@@ -138,7 +141,6 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " Other
 set mouse=
-set list
 
 " Buffer handling
 nmap L :let &number=1-&number<CR>
