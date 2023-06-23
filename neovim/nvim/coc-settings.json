@@ -1,3 +1,15 @@
 {
-    "coc.preferences.jumpCommand": "drop"
+    "coc.preferences.jumpCommand": "drop",
+    "languageserver": {
+        "terraform": {
+            "command": "terraform-ls",
+            "args": ["serve"],
+            "filetypes": [
+                "terraform",
+                "tf"
+            ],
+            "initializationOptions": {},
+            "settings": {}
+        }
+    }
 }
