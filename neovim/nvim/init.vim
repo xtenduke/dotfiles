@@ -1,11 +1,8 @@
 " theme
 syntax on
 set t_Co=256
+colorscheme nightfox
 " end theme
-syntax on
-set t_Co=256
-let g:airline_theme='monokai'
-colorscheme molokai256
 
 set mouse=
 set ruler               " Show the line and column numbers of the cursor.
@@ -103,7 +100,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'vim-test/vim-test'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'EdenEast/nightfox.nvim'
 
 call plug#end()
 
