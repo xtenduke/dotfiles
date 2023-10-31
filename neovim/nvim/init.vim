@@ -28,8 +28,8 @@ set backspace=indent,eol,start  " Makes backspace key more powerful.
 set showcmd                     " Show me what I'm typing
 set autoindent
 set noexpandtab
-set tabstop=4 "4 space tabls
-set shiftwidth=4
+set tabstop=2 "4 space tabls
+set shiftwidth=2
 set showmode                    " Show current mode.
 set noswapfile                  " Don't use swapfile
 set nobackup            	" Don't create annoying backup files
