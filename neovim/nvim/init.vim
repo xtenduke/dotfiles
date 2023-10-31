@@ -78,8 +78,6 @@ nmap <Leader>s :%s//g<Left><Left>
 let mapleader='z'
 let maplocalleader='\'
 
-let g:python_host_prog="/usr/local/bin/python2.7"
-
 let g:session_autosave = 'yes'
 let g:session_autoload = 'yes'
 let g:session_default_to_last = 1
