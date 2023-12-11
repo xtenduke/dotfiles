@@ -28,4 +28,6 @@ if [ -f ~/.zshrc_system ]; then
     source ~/.zshrc_system
 fi
 
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 # Hey YOU - Don't add non generic things here!
