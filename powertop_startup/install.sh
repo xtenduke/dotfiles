@@ -5,9 +5,12 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+pushd powertop_startup
+
 cp startup_script.sh /usr/bin/
-cp loach_startup.service /etc/systemd/system/
+cp powertop_startup.service /etc/systemd/system/
 
 systemctl daemon-reload
-systemctl enable loach_startup
+systemctl enable powertop_startup
 
+popd
