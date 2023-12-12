@@ -1,7 +1,10 @@
 " theme
 syntax on
 set t_Co=256
-let g:airline_theme='molokai'
+" see
+" https://github.com/vim-airline/vim-airline-themes/tree/master/autoload/airline/themes
+" for theme options
+let g:airline_theme='deus'
 colorscheme molokai256
 " end theme
 
