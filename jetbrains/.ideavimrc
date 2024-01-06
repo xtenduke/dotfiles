@@ -1,0 +1,2 @@
+nmap <c-l> <Action>(NextTab)
+nmap <c-h> <Action>(PreviousTab)
