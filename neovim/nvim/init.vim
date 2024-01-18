@@ -5,7 +5,6 @@ set t_Co=256
 " https://github.com/vim-airline/vim-airline-themes/tree/master/autoload/airline/themes
 " for theme options
 let g:airline_theme='deus'
-colorscheme molokai256
 " end theme
 
 set mouse=
@@ -102,6 +101,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'vim-test/vim-test'
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
@@ -309,3 +309,6 @@ nmap <silent> <leader>g :TestVisit<CR>
 
 " Move to normal mode to scroll tests
 tmap <C-o> <C-\><C-n>
+
+" Color
+colorscheme PaperColor
