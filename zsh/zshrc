@@ -28,6 +28,9 @@ if [ -f ~/.zshrc_system ]; then
     source ~/.zshrc_system
 fi
 
+# Set backspace
+bindkey "^[[3~" delete-char
+
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/emulator
