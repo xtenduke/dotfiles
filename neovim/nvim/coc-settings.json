@@ -1,15 +1,21 @@
 {
-    "coc.preferences.jumpCommand": "drop",
-    "languageserver": {
-        "terraform": {
-            "command": "terraform-ls",
-            "args": ["serve"],
-            "filetypes": [
-                "terraform",
-                "tf"
-            ],
-            "initializationOptions": {},
-            "settings": {}
-        }
+  "coc.preferences.jumpCommand": "drop",
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {},
+      "settings": {}
+    },
+    "asm-lsp": {
+      "command": "asm-lsp",
+      "filetypes": [
+        "asm", "s", "S"
+      ]
     }
+  }
 }
