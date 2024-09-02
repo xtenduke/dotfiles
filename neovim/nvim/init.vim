@@ -1,6 +1,7 @@
 " theme
 syntax on
 set t_Co=256
+set termguicolors
 " see
 " https://github.com/vim-airline/vim-airline-themes/tree/master/autoload/airline/themes
 " for theme options
