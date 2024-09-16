@@ -9,19 +9,19 @@ opacity = 0.96
 size = 11.0
 
 [font.bold]
-family = "JetBrainsMono"
+family = "JetBrains Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrainsMono"
+family = "JetBrains Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "JetBrainsMono"
+family = "JetBrains Mono"
 style = "Italic"
 
 [font.normal]
-family = "JetBrainsMono"
+family = "JetBrains Mono"
 style = "Light"
 
 [colors.bright]
