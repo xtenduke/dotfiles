@@ -29,10 +29,6 @@ set nostartofline       " Do not jump to first character with page commands.
 set noerrorbells                " No beeps
 set backspace=indent,eol,start  " Makes backspace key more powerful.
 set showcmd                     " Show me what I'm typing
-set autoindent
-set noexpandtab
-set tabstop=2 "4 space tabls
-set shiftwidth=2
 set showmode                    " Show current mode.
 set noswapfile                  " Don't use swapfile
 set nobackup            	" Don't create annoying backup files
@@ -43,13 +39,24 @@ set laststatus=2
 set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
 set showmatch                   " Do not show matching brackets by flickering
 set incsearch                   " Shows the match while typing
-set hlsearch                    " Highlight found searches
 set ignorecase                  " Search case insensitive...
 set smartcase                   " ... but not when search pattern contains upper case characters
-filetype plugin indent on " On pressing tab, insert 2 spaces
-set expandtab " show existing tab with 2 spaces width
 set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 set hidden              " Fix for opening files with unsaved buffer
+
+" Indent
+set expandtab
+filetype plugin indent on " On pressing tab, insert 2 spaces
+set autoindent
+set tabstop=2
+set shiftwidth=2
+
+" ShiftWidth
+augroup CSharpSettings
+    autocmd!
+    autocmd BufRead,BufNewFile *.cs setlocal shiftwidth=4
+augroup END
+
 
 " typescript-vim fix
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
@@ -89,15 +96,15 @@ set nospell
 
 " Plugins here
 call plug#begin('~/.config/nvim/plugged')
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'Shougo/deoplete.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-autoformat/vim-autoformat'
+Plug 'Chiel92/vim-autoformat'
 Plug 'scrooloose/nerdtree'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-sleuth'
 Plug 'vim-test/vim-test'
 Plug 'NLKNguyen/papercolor-theme'
 
