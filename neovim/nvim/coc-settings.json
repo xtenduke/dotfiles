@@ -20,7 +20,7 @@
     "csharp-ls": {
       "command": "csharp-ls",
       "filetypes": ["cs"],
-      "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
+      "rootPatterns-disabled": ["*.csproj", ".vim/", ".git/", ".hg/"]
     }
   }
 }
