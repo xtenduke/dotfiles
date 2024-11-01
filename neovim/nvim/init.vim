@@ -89,16 +89,15 @@ set nospell
 
 " Plugins here
 call plug#begin('~/.config/nvim/plugged')
-" Plug 'Shougo/deoplete.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Chiel92/vim-autoformat'
+Plug 'vim-autoformat/vim-autoformat'
 Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sleuth'
 Plug 'vim-test/vim-test'
 Plug 'NLKNguyen/papercolor-theme'
 
