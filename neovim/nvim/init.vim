@@ -106,7 +106,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-test/vim-test'
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'tanvirtin/monokai.nvim'
 
 call plug#end()
 
@@ -316,4 +316,4 @@ nmap <silent> <leader>g :TestVisit<CR>
 tmap <C-o> <C-\><C-n>
 
 " Color
-colorscheme PaperColor
+colorscheme monokai
