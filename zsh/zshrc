@@ -37,6 +37,3 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 
 export PATH="$PATH:$HOME/.local/bin"
 # Hey YOU - Don't add non generic things here!
-meow
-
-[[ -s "/Users/jakelaurie/.gvm/scripts/gvm" ]] && source "/Users/jakelaurie/.gvm/scripts/gvm"
