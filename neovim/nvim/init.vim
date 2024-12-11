@@ -8,6 +8,7 @@ set termguicolors
 let g:airline_theme='deus'
 " end theme
 
+set nowrap
 set mouse=
 set ruler               " Show the line and column numbers of the cursor.
 set formatoptions+=o    " Continue comment marker in new lines.
