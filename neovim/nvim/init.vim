@@ -62,16 +62,16 @@ augroup END
 " typescript-vim fix
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 
-" Start nerdtree when opening vim on dir
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 " Telescope config
 nnoremap <silent><C-o> <cmd>Telescope find_files<cr>
 nnoremap <silent><C-f> <cmd>Telescope live_grep<cr>
 
-" Kill vim if nerdtree is the only thing open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Neotree
+" Start neotree when opening vim on dir
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | Neotree | endif
+map <C-n> :Neotree toggle<CR>
+
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
@@ -106,6 +106,10 @@ Plug 'vim-test/vim-test'
 Plug 'tanvirtin/monokai.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+" Neotree
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v2.x' }    
 
 call plug#end()
 
@@ -116,9 +120,6 @@ call plug#end()
   " set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 "  set listchars=tab:>\ ,extends:>,precedes:<,nbsp:+
 "endif
-
-" nerdtree config
-map <C-n> :NERDTreeToggle<CR>
 
 " airline settings
 let g:airline#extensions#coc#enabled = 1
