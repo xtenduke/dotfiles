@@ -303,6 +303,9 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+" coc extensions
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-rustanalyzer', 'coc-git', 'coc-sh', 'coc-clangd', 'coc-go', 'coc-html', 'coc-java', 'coc-markdownlint', 'coc-pyright', 'coc-veutr']
+
 " End coc.nvim config
 
 " test vim-test
