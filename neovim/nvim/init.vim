@@ -66,13 +66,9 @@ autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-"FZF mapping
-noremap <silent> <C-o> :FZF -m<CR>
-" FZF ignore gitignored files (requires silversearcher-ag)
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-
-" Ag mapping
-noremap <silent> <C-f> :Rg<CR>
+" Telescope config
+nnoremap <silent><C-o> <cmd>Telescope find_files<cr>
+nnoremap <silent><C-f> <cmd>Telescope live_grep<cr>
 
 " Kill vim if nerdtree is the only thing open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -108,6 +104,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-test/vim-test'
 Plug 'tanvirtin/monokai.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 
 call plug#end()
 
