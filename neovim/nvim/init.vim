@@ -71,6 +71,8 @@ nnoremap <silent><C-f> <cmd>Telescope live_grep<cr>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | Neotree | endif
 map <C-n> :Neotree toggle<CR>
+" Jump to current buffer
+map <C-u> :Neotree reveal<CR>
 
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
