@@ -306,7 +306,7 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " coc extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-rustanalyzer', 'coc-git', 'coc-sh', 'coc-clangd', 'coc-go', 'coc-html', 'coc-java', 'coc-markdownlint', 'coc-pyright', 'coc-veutr']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-rust-analyzer', 'coc-git', 'coc-sh', 'coc-clangd', 'coc-go', 'coc-html', 'coc-java', 'coc-markdownlint', 'coc-pyright', 'coc-vetur']
 
 " End coc.nvim config
 
