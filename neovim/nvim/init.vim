@@ -45,6 +45,10 @@ set smartcase                   " ... but not when search pattern contains upper
 set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 set hidden              " Fix for opening files with unsaved buffer
 
+" Yank to system clipboard
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+
 " Indent
 set expandtab
 filetype plugin indent on " On pressing tab, insert 2 spaces
