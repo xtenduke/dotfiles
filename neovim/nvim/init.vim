@@ -322,5 +322,15 @@ nmap <silent> <leader>g :TestVisit<CR>
 " Move to normal mode to scroll tests
 tmap <C-o> <C-\><C-n>
 
+" Treesitter
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
 " Color
 colorscheme monokai
