@@ -8,8 +8,6 @@
 ./zsh/install.sh
 ./nvm/install.sh
 
-#!/bin/bash
-
 fixed_name="Jake Laurie"
 
 read -rp "Enter your email address: " email
