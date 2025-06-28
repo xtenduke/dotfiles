@@ -12,6 +12,10 @@ size = 12.0
 family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Light"
+
 [font.bold_italic]
 family = "JetBrainsMono Nerd Font"
 style = "Bold Italic"
@@ -19,10 +23,6 @@ style = "Bold Italic"
 [font.italic]
 family = "JetBrainsMono Nerd Font"
 style = "Italic"
-
-[font.normal]
-family = "JetBrainsMono Nerd Font"
-style = "Light"
 
 [colors.bright]
 black = "0x636363"
