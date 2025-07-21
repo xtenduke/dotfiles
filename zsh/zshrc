@@ -14,11 +14,19 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Reload history from file - for tmux
+[ -f "$HISTFILE" ] && fc -R "$HISTFILE"
+
 # Persist shell history
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-setopt appendhistory
+setopt appendhistory           # Append to the history file (do not overwrite)
+setopt incappendhistory       # Add commands as they are typed, not at shell exit
+setopt sharehistory           # Share history across all sessions
+setopt histignoredups         # Ignore duplicated commands
+setopt histignorespace        # Ignore commands starting with space
+setopt extendedhistory        # Save timestamp + duration in history file
 
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
@@ -36,4 +44,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/emulator
 
 export PATH="$PATH:$HOME/.local/bin"
+alias compose-restart="docker compose down && docker compose up -d"
 # Hey YOU - Don't add non generic things here!
+
+[[ -s "/home/jake/.gvm/scripts/gvm" ]] && source "/home/jake/.gvm/scripts/gvm"
