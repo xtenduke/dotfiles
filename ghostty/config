@@ -1,0 +1,42 @@
+# ~/.config/ghostty/config
+background-opacity = 0.99
+
+font-family = "JetBrainsMono Nerd Font"
+font-size = 12
+
+foreground = d6d6d6
+background = 1c1c1c
+
+cursor-color = d9d9d9
+cursor-text = 2c2c2c
+cursor-style = block
+
+# 16‑color palette (normal + bright variations)
+palette = 0=1c1c1c
+palette = 1=bc5653
+palette = 2=909d63
+palette = 3=ebc17a
+palette = 4=7eaac7
+palette = 5=aa6292
+palette = 6=86d3ce
+palette = 7=cacaca
+
+palette = 8=636363
+palette = 9=bc5653
+palette = 10=909d63
+palette = 11=ebc17a
+palette = 12=7eaac7
+palette = 13=aa6292
+palette = 14=86d3ce
+palette = 15=f7f7f7
+
+# dim colors can be manually set via additional indices:
+palette = 16=232323
+palette = 17=74423f
+palette = 18=5e6547
+palette = 19=8b7653
+palette = 20=556b79
+palette = 21=6e4962
+palette = 22=5c8482
+palette = 23=828282
+
