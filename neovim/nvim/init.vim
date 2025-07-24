@@ -46,8 +46,10 @@ set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 set hidden              " Fix for opening files with unsaved buffer
 
 " Yank to system clipboard
-nnoremap <leader>y "+y
-vnoremap <leader>y "+y
+" To get this to work over SSH the osc52 thing needs to be enabled
+" There is some config in tmux to be done also to passthrough the clipboard
+vnoremap <leader>y :OSCYankVisual<CR>
+nnoremap <leader>y :OSCYank<CR>
 
 " Indent
 set expandtab
@@ -118,6 +120,8 @@ Plug 'MunifTanjim/nui.nvim'
 Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v2.x' }    
 " Copilot
 Plug 'github/copilot.vim'
+"SSH
+Plug 'ojroques/vim-oscyank'
 
 call plug#end()
 
