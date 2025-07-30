@@ -50,3 +50,4 @@ alias compose-restart="docker compose down && docker compose up -d"
 # Hey YOU - Don't add non generic things here!
 
 [[ -s "/home/jake/.gvm/scripts/gvm" ]] && source "/home/jake/.gvm/scripts/gvm"
+unset -f cd
