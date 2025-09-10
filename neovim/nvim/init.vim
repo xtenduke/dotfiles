@@ -46,6 +46,7 @@ set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 set hidden              " Fix for opening files with unsaved buffer
 
 " Yank to system clipboard
+set clipboard=unnamedplus
 " To get this to work over SSH the osc52 thing needs to be enabled
 " There is some config in tmux to be done also to passthrough the clipboard
 vnoremap <leader>y :OSCYankVisual<CR>
@@ -342,3 +343,19 @@ EOF
 
 " Color
 colorscheme monokai
+
+" Neovide specific
+let g:neovide_cursor_short_animation_length = 0.0
+let g:neovide_cursor_animation_length = 0.0
+
+let g:neovide_scale_factor = 1.0
+
+function! ChangeScaleFactor(delta)
+    let g:neovide_scale_factor = g:neovide_scale_factor * a:delta
+    " <expr> mappings require a return value
+    return ''
+endfunction
+
+" Ctrl+= to increase, Ctrl+- to decrease
+nnoremap <expr> <C-=> ChangeScaleFactor(1.10)
+nnoremap <expr> <C--> ChangeScaleFactor(1/1.10)
