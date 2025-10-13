@@ -47,7 +47,15 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 
 export PATH="$PATH:$HOME/.local/bin"
 alias compose-restart="docker compose down && docker compose up -d"
+
+# Load GVM if installed
+if [ -f "/home/jake/.gvm/scripts/gvm" ]; then
+    source "/home/jake/.gvm/scripts/gvm"
+fi
+
+if typeset -f cd >/dev/null 2>&1; then
+    unset -f cd
+fi
+
 # Hey YOU - Don't add non generic things here!
 
-[[ -s "/home/jake/.gvm/scripts/gvm" ]] && source "/home/jake/.gvm/scripts/gvm"
-unset -f cd
