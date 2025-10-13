@@ -1,2 +1,7 @@
 nmap <c-l> <Action>(NextTab)
 nmap <c-h> <Action>(PreviousTab)
+map gi :action GotoImplementation<CR>
+map gd :action GotoDeclaration<CR>
+map gt :action GotoSuperMethod<CR>
+map ge :action ReSharperGotoNextErrorInSolution<CR>
+map gr :action FindUsages<CR>
