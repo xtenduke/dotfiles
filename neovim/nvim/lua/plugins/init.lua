@@ -29,4 +29,12 @@ return {
       },
     },
   },
+  {
+    "vim-test/vim-test",
+    cmd = { "TestNearest", "TestFile", "TestSuite", "TestLast", "TestVisit" },
+    config = function()
+      vim.g["test#strategy"] = "neovim" -- use built-in Neovim terminal
+      vim.g["test#preserve_screen"] = 1
+    end,
+  },
 }
