@@ -6,14 +6,16 @@ local tabufline = require "nvchad.tabufline"
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
+-- Buffer navigation
 -- Switch buffers with Ctrl + H / Ctrl + L (NvChad built-in)
 map("n", "<C-h>", function()
   tabufline.prev()
 end, { desc = "Previous buffer" })
-
 map("n", "<C-l>", function()
   tabufline.next()
 end, { desc = "Next buffer" })
+map("n", "<leader>bq", ":bp <BAR> bd #<CR>", { desc = "Close current buffer" })
+
 
 -- Searching
 local builtin = require "telescope.builtin"
