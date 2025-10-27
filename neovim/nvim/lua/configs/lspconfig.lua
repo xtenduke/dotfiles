@@ -5,7 +5,8 @@ vim.lsp.enable(servers)
 
 -- csharp with csharp-ls
 -- vim.lsp.enable('csharp_ls')
-vim.lsp.enable('omnisharp')
+-- vim.lsp.enable('omnisharp')
+vim.lsp.config("roslyn", {})
 
 
 -- read :h vim.lsp.config for changing options of lsp servers 
