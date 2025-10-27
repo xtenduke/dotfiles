@@ -21,13 +21,22 @@ map("n", "<leader>o", builtin.find_files, { desc = "Search for files" })
 map("n", "<leader>f", builtin.live_grep, { desc = "Search inside files" })
 
 -- Vim test
--- Run nearest test
-map("n", "<leader>tn", ":TestNearest<CR>", { desc = "Run nearest test" })
--- Run all tests in current file
-map("n", "<leader>tf", ":TestFile<CR>", { desc = "Run tests in file" })
--- Run entire test suite
-map("n", "<leader>ts", ":TestSuite<CR>", { desc = "Run test suite" })
--- Re-run last test
-map("n", "<leader>tl", ":TestLast<CR>", { desc = "Run last test" })
--- Jump to last test file
-map("n", "<leader>tv", ":TestVisit<CR>", { desc = "Visit last test file" })
+map("n", "<leader>t", ":TestNearest<CR>", { desc = "Run nearest test" })
+map("n", "<leader>T", ":TestFile<CR>", { desc = "Run tests in file" })
+map("n", "<leader>a", ":TestSuite<CR>", { desc = "Run all tests" })
+map("n", "<leader>l", ":TestLast<CR>", { desc = "Re-run last test" })
+map("n", "<leader>g", ":TestVisit<CR>", { desc = "Go to last test file" })
+map("t", "<C-o>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+-- LSP specific
+map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+map("n", "gr", vim.lsp.buf.references, { desc = "Find references" })
+map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
+map("n", "K", vim.lsp.buf.hover, { desc = "Show hover info" })
+map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
+map("n", "<leader>f", function()
+  vim.lsp.buf.format { async = true }
+end, { desc = "Format file" })
+map("v", "<leader>f", vim.lsp.buf.format, { desc = "Format selection" })
+map("n", "<leader>qf", vim.lsp.buf.code_action, { desc = "Quick fix / code action" })
+map("v", "<leader>qf", vim.lsp.buf.code_action, { desc = "Code action (visual)" })
