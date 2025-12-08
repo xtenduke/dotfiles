@@ -32,9 +32,10 @@ return {
   -- Vim test
   {
     "vim-test/vim-test",
+    ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
     cmd = { "TestNearest", "TestFile", "TestSuite", "TestLast", "TestVisit" },
     config = function()
-      vim.g["test#strategy"] = "neovim" -- use built-in Neovim terminal
+      vim.g["test#strategy"] = "neovim"
       vim.g["test#preserve_screen"] = 1
     end,
   },

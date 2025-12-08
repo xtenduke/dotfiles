@@ -20,5 +20,7 @@ M.base46 = {
 --          lazyload = false
 --      }
 -- }
+--
+vim.g["test#javascript#jest#file_pattern"] = "\\v(.*)\\.(test|spec)\\.(js|jsx|ts|tsx)$"
 
 return M

@@ -42,3 +42,9 @@ end, { desc = "Format file" })
 map("v", "<leader>f", vim.lsp.buf.format, { desc = "Format selection" })
 map("n", "<leader>qf", vim.lsp.buf.code_action, { desc = "Quick fix / code action" })
 map("v", "<leader>qf", vim.lsp.buf.code_action, { desc = "Code action (visual)" })
+
+-- copilot
+-- Copilot Suggestion Acceptance Key
+map('i', '<leader>i', function ()
+    vim.fn.feedkeys(vim.fn['copilot#Accept'](), '')
+end, { desc = 'Copilot Accept', noremap = true, silent = true })
