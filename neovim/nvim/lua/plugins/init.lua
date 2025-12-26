@@ -78,4 +78,35 @@ return {
       -- your configuration comes here; leave empty for default settings
     },
   },
+
+  -- DAP + test debugging
+  {
+    "mfussenegger/nvim-dap",
+    config = function()
+      require "configs.dap"
+    end,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    dependencies = { "mfussenegger/nvim-dap" },
+    opts = {
+      ensure_installed = { "js-debug-adapter" },
+      automatic_installation = true,
+      handlers = {},
+    },
+  },
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-neotest/nvim-nio",
+      "nvim-neotest/neotest-jest",
+      "antoinemadec/FixCursorHold.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    config = function()
+      require "configs.neotest"
+    end,
+  },
 }

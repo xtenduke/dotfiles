@@ -21,6 +21,8 @@ map("n", "<leader>bq", ":bp <BAR> bd #<CR>", { desc = "Close current buffer" })
 local builtin = require "telescope.builtin"
 map("n", "<leader>o", builtin.find_files, { desc = "Search for files" })
 map("n", "<leader>f", builtin.live_grep, { desc = "Search inside files" })
+map("n", "<C-o>", builtin.find_files, { desc = "Search for files (exclude gitignored)" })
+map("n", "<C-f>", builtin.live_grep, { desc = "Search inside files (exclude gitignored)" })
 
 -- Vim test
 map("n", "<leader>t", ":TestNearest<CR>", { desc = "Run nearest test" })
@@ -29,6 +31,18 @@ map("n", "<leader>a", ":TestSuite<CR>", { desc = "Run all tests" })
 map("n", "<leader>l", ":TestLast<CR>", { desc = "Re-run last test" })
 map("n", "<leader>g", ":TestVisit<CR>", { desc = "Go to last test file" })
 map("t", "<C-o>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+-- Debug test using vim-test's working logic + DAP
+map("n", "<leader>dt", function()
+  local jest_debug = require("custom.jest_debug")
+  jest_debug.debug_jest_test("nearest")
+end, { desc = "Debug nearest test" })
+map("n", "<leader>db", function()
+  require("dap").toggle_breakpoint()
+end, { desc = "Toggle breakpoint" })
+map("n", "<leader>dx", function()
+  require("dap").terminate()
+end, { desc = "Terminate debug session" })
 
 -- LSP specific
 map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
