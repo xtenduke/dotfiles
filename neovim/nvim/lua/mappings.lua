@@ -44,6 +44,9 @@ map("n", "<leader>dx", function()
   require("dap").terminate()
 end, { desc = "Terminate debug session" })
 
+-- Git
+map("n", "<leader>gb", ":GitBlameToggle<CR>", { desc = "Toggle git blame" })
+
 -- LSP specific
 map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 map("n", "gr", vim.lsp.buf.references, { desc = "Find references" })
