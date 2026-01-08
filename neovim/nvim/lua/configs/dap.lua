@@ -242,6 +242,13 @@ end
 
 dap.configurations.javascript = {
   jest_config "Jest (file)",
+  {
+    type = "pwa-node",
+    request = "attach",
+    name = "Attach to Port 9229",
+    port = 9229,
+    cwd = "${workspaceFolder}",
+  },
 }
 
 dap.configurations.typescript = dap.configurations.javascript

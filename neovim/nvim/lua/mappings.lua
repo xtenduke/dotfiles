@@ -44,6 +44,10 @@ map("n", "<leader>dx", function()
   require("dap").terminate()
 end, { desc = "Terminate debug session" })
 
+map("n", "<leader>dc", function()
+  require("dap").continue()
+end, { desc = "Start/Continue debug session" })
+
 -- Git
 map("n", "<leader>gb", ":GitBlameToggle<CR>", { desc = "Toggle git blame" })
 
