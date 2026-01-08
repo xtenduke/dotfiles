@@ -5,3 +5,5 @@ map gd :action GotoDeclaration<CR>
 map gt :action GotoSuperMethod<CR>
 map ge :action ReSharperGotoNextErrorInSolution<CR>
 map gr :action FindUsages<CR>
+set visualbell
+set noerrorbells
