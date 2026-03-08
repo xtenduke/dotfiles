@@ -114,4 +114,31 @@ return {
       require "configs.neotest"
     end,
   },
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
+      view = {
+        float = {
+          enable = true,
+          open_win_config = function()
+            local screen_w = vim.opt.columns:get()
+            local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
+            local window_w = math.floor(screen_w * 0.5) -- 80% of screen width
+            local window_h = math.floor(screen_h * 0.5) -- 80% of screen height
+            local center_x = math.floor((screen_w - window_w) / 2)
+            local center_y = math.floor((screen_h - window_h) / 2)
+
+            return {
+              border = "rounded",
+              relative = "editor",
+              row = center_y,
+              col = center_x,
+              width = window_w,
+              height = window_h,
+            }
+          end,
+        },
+      },
+    },
+  },
 }
