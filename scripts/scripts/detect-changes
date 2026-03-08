@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -e
+
+FROM_BRANCH=${1:-main}
+TO_BRANCH=${2:-uat}
+
+echo "Changes from $FROM_BRANCH → $TO_BRANCH"
+echo "-----------------------------------"
+
+git fetch origin "$FROM_BRANCH" "$TO_BRANCH"
+
+npx conventional-changelog \
+  --preset conventionalcommits \
+  --from "origin/$FROM_BRANCH" \
+  --to "origin/$TO_BRANCH"
+
+# OK?

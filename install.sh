@@ -7,4 +7,5 @@
 ./neovim/install.sh
 ./tmux/install.sh
 ./zsh/install.sh
+./scripts/install.sh
 ./nvm/install.sh

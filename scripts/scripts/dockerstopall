@@ -1,0 +1,25 @@
+  #!/bin/bash
+  count='0'
+
+  function getRunningCount() {
+      count=$(docker ps -q | wc -l)
+  }
+
+  echo "Stop all Docker containers..."
+  getRunningCount
+  if [ "$count" -eq "0" ]; then
+     echo "No containers running... exiting";
+     exit 0;
+  fi
+
+  echo "currently running:" $count
+  echo 'killing.......'
+  echo -n $(docker stop $(docker ps -q))
+  getRunningCount
+  if [ "$count" -eq "0" ]; then
+     echo -e "\nSuccess";
+     exit 0;
+  else
+      echo "Failed to kill all containers, running:" $count
+      exit 1;
+  fi

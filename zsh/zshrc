@@ -38,6 +38,10 @@ if [ -f ~/.zshrc_system ]; then
     source ~/.zshrc_system
 fi
 
+# Load scripts
+export PATH="$HOME/scripts:$PATH"
+
+
 # Set backspace
 bindkey "^[[3~" delete-char
 
