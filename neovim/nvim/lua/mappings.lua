@@ -23,6 +23,7 @@ map("n", "<leader>o", builtin.find_files, { desc = "Search for files" })
 map("n", "<leader>f", builtin.live_grep, { desc = "Search inside files" })
 map("n", "<C-o>", builtin.find_files, { desc = "Search for files (exclude gitignored)" })
 map("n", "<C-f>", builtin.live_grep, { desc = "Search inside files (exclude gitignored)" })
+map("n", "?", builtin.current_buffer_fuzzy_find, { desc = "Search current buffer" })
 
 -- Vim test
 map("n", "<leader>t", ":TestNearest<CR>", { desc = "Run nearest test" })
@@ -52,9 +53,9 @@ end, { desc = "Start/Continue debug session" })
 map("n", "<leader>gb", ":GitBlameToggle<CR>", { desc = "Toggle git blame" })
 
 -- LSP specific
-map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-map("n", "gr", vim.lsp.buf.references, { desc = "Find references" })
-map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
+map("n", "gd", builtin.lsp_definitions, { desc = "Go to definition" })
+map("n", "gr", builtin.lsp_references, { desc = "Find references" })
+map("n", "gi", builtin.lsp_implementations, { desc = "Go to implementation" })
 map("n", "K", vim.lsp.buf.hover, { desc = "Show hover info" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 map("n", "<leader>f", function()
@@ -63,6 +64,9 @@ end, { desc = "Format file" })
 map("v", "<leader>f", vim.lsp.buf.format, { desc = "Format selection" })
 map("n", "<leader>qf", vim.lsp.buf.code_action, { desc = "Quick fix / code action" })
 map("v", "<leader>qf", vim.lsp.buf.code_action, { desc = "Code action (visual)" })
+
+-- Redo with Shift+U
+map("n", "U", "<C-r>", { desc = "Redo" })
 
 -- copilot
 -- Copilot Suggestion Acceptance Key
