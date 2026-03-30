@@ -108,11 +108,6 @@ return {
     end,
   },
   {
-    "f-person/git-blame.nvim",
-    -- load the plugin when the "GitBlameToggle" command is run
-    cmd = "GitBlameToggle",
-  },
-  {
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-lua/plenary.nvim",

@@ -2,6 +2,15 @@ require "nvchad.options"
 
 -- add yours here!
 
+-- Right-click context menu — append after NvChad finishes setting up the menu
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    require("custom.blame") -- ensure module + command are registered
+    vim.cmd "anoremenu PopUp.-GitSep- <Nop>"
+    vim.cmd "anoremenu PopUp.Git\\ Blame\\ Toggle :BlameToggle<CR>"
+  end,
+})
+
 
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!

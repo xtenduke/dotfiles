@@ -50,7 +50,7 @@ map("n", "<leader>dc", function()
 end, { desc = "Start/Continue debug session" })
 
 -- Git
-map("n", "<leader>gb", ":GitBlameToggle<CR>", { desc = "Toggle git blame" })
+map("n", "<leader>gb", ":BlameToggle<CR>", { desc = "Toggle git blame" })
 
 -- LSP specific
 map("n", "gd", builtin.lsp_definitions, { desc = "Go to definition" })
