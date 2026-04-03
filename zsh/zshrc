@@ -1,3 +1,21 @@
+# When inside tmux over SSH, tmux queries the outer terminal's background colour
+# (OSC 11). With SSH latency the response arrives after tmux's escape-time and
+# is routed to the inner pane's stdin. With terminal echo on, that response gets
+# echoed into p10k's stdout capture and appears as garbage before the first prompt.
+# Fix: disable echo now (before p10k captures stdout), restore it + drain the raw
+# bytes from stdin on the first ZLE line-init, after p10k has restored stdin.
+if [[ -t 0 && -n "$TMUX" ]]; then
+  stty -echo 2>/dev/null
+  _tmux_osc_drain() {
+    (( ${_tmux_osc_drain_done:-0} )) && return
+    typeset -g _tmux_osc_drain_done=1
+    stty echo 2>/dev/null
+    local _c
+    while read -r -t 0 -k 1 _c 2>/dev/null; do :; done
+  }
+  zle -N zle-line-init _tmux_osc_drain
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
