@@ -53,7 +53,7 @@ vim.lsp.config("eslint", {
 })
 vim.lsp.enable "eslint"
 
-
+vim.lsp.enable "rust_analyzer"
 
 -- csharp with csharp-ls
 -- vim.lsp.enable('csharp_ls')

@@ -26,6 +26,8 @@ return {
         "html",
         "css",
         "c_sharp",
+        "rust",
+        "toml",
       },
     },
   },
