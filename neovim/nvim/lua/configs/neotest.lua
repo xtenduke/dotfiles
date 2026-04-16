@@ -99,22 +99,14 @@ require("neotest").setup({
       jestCommand = function(path)
         local ctx = find_jest_context(path)
         local bin = ctx.bin or "jest"
-        -- Build command exactly like vim-test does
-        local cmd = {
-          "node",
-          "--experimental-vm-modules",
-          "--no-warnings",
-          bin,
-          "--runInBand",
-          "--detectOpenHandles",
-        }
-        if ctx.config then
-          table.insert(cmd, "--config")
-          table.insert(cmd, ctx.config)
-        end
-        -- Debug logging
-        vim.notify("Neotest Jest Command: " .. vim.inspect(cmd), vim.log.levels.INFO)
-        return cmd
+        vim.notify("Neotest Jest Bin: " .. bin, vim.log.levels.INFO)
+        -- Return only the binary; NODE_OPTIONS env handles --experimental-vm-modules,
+        -- jestArguments handles --runInBand/--detectOpenHandles,
+        -- and jestConfigFile handles --config (avoids duplicate --config flags)
+        return bin
+      end,
+      jestArguments = function(defaultArgs)
+        return vim.list_extend({ "--runInBand", "--detectOpenHandles" }, defaultArgs)
       end,
       jestConfigFile = function(path)
         local ctx = find_jest_context(path)

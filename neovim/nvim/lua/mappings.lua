@@ -68,6 +68,11 @@ map("v", "<leader>qf", vim.lsp.buf.code_action, { desc = "Code action (visual)" 
 -- Redo with Shift+U
 map("n", "U", "<C-r>", { desc = "Redo" })
 
+-- Smart paste: re-indent pasted text to match surrounding context
+-- Uses '[  '] marks that Neovim sets automatically after a paste
+map("n", "p", "p=`]", { desc = "Paste and re-indent" })
+map("n", "P", "P=`[", { desc = "Paste above and re-indent" })
+
 -- copilot
 -- Copilot Suggestion Acceptance Key
 map('i', '<leader>i', function ()
