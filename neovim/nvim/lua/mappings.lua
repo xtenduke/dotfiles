@@ -15,6 +15,14 @@ map("n", "<C-l>", function()
   tabufline.next()
 end, { desc = "Next buffer" })
 map("n", "<leader>bq", ":bp <BAR> bd #<CR>", { desc = "Close current buffer" })
+map("n", "<C-w>", function()
+  local bufs = vim.fn.getbufinfo { buflisted = 1 }
+  if #bufs <= 1 then
+    vim.cmd "quit"
+  else
+    tabufline.close_buffer()
+  end
+end, { desc = "Close buffer or window" })
 
 
 -- Searching

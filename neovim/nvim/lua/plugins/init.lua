@@ -98,16 +98,26 @@ return {
     },
   },
   {
-    "nvim-telescope/telescope-ui-select.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim" },
-    config = function()
-      require("telescope").setup {
-        extensions = {
-          ["ui-select"] = require("telescope.themes").get_dropdown(),
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+    opts = {
+      select = {
+        backend = { "telescope" },
+        telescope = require("telescope.themes").get_dropdown(),
+      },
+    },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        mappings = {
+          i = {
+            ["<Esc>"] = require("telescope.actions").close,
+          },
         },
-      }
-      require("telescope").load_extension "ui-select"
-    end,
+      },
+    },
   },
   {
     "nvim-neotest/neotest",
@@ -126,6 +136,11 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     opts = {
+      on_attach = function(bufnr)
+        local api = require "nvim-tree.api"
+        api.config.mappings.default_on_attach(bufnr)
+        vim.keymap.set("n", "<Esc>", api.tree.close, { buffer = bufnr, noremap = true, silent = true })
+      end,
       view = {
         float = {
           enable = true,
