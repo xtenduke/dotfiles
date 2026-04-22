@@ -1,21 +1,17 @@
 #!/bin/bash
+set -e
 
-echo "Install gitconfig"
-
-# Remove old config...
-rm -rf ~/.gitconfig
-ln -s "$(pwd)/git/gitconfig" ~/.gitconfig
-
-fixed_name="Jake Laurie"
-
-read -rp "Enter your email address: " email
+DIR="$(cd "$(dirname "$0")" && pwd)"
+echo "Installing gitconfig"
+ln -sf "$DIR/gitconfig" ~/.gitconfig
 
 identity_file="$HOME/.gitconfig-identity"
-
-cat > "$identity_file" <<EOF
+if [[ ! -f "$identity_file" ]]; then
+    read -rp "Enter your email address: " email
+    cat > "$identity_file" <<EOF
 [user]
-    name = $fixed_name
+    name = Jake Laurie
     email = $email
 EOF
-
-echo "Wrote identity to $identity_file"
+    echo "Wrote identity to $identity_file"
+fi

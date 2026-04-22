@@ -1,16 +1,16 @@
+#!/bin/bash
 set -e
 
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root"
-  exit
+if [[ "$EUID" -ne 0 ]]; then
+    echo "Please run as root"
+    exit 1
 fi
 
-pushd powertop_startup
+DIR="$(cd "$(dirname "$0")" && pwd)"
+echo "Installing powertop startup service"
 
-cp startup_script.sh /usr/bin/
-cp powertop_startup.service /etc/systemd/system/
+cp "$DIR/startup_script.sh" /usr/bin/
+cp "$DIR/powertop_startup.service" /etc/systemd/system/
 
 systemctl daemon-reload
 systemctl enable powertop_startup
-
-popd

@@ -1,8 +1,12 @@
 #!/bin/bash
+set -e
 
-echo "Install nvm"
+DIR="$(cd "$(dirname "$0")" && pwd)"
+echo "Installing nvm"
 
-"$(pwd)/nvm/nvm_install_full.sh"
+"$DIR/nvm_install_full.sh"
 
+export NVM_DIR="$HOME/.nvm"
+# shellcheck source=/dev/null
+source "$NVM_DIR/nvm.sh"
 nvm install 18
-

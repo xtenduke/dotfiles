@@ -1,7 +1,6 @@
 #!/bin/bash
+set -e
 
-echo "Install tmux config"
-
-# Remove old config...
-rm -rf ~/.tmux.conf
-ln -s "$(pwd)/tmux/tmux.conf" ~/.tmux.conf
+DIR="$(cd "$(dirname "$0")" && pwd)"
+echo "Installing tmux config"
+ln -sf "$DIR/tmux.conf" ~/.tmux.conf

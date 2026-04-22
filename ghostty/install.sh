@@ -1,6 +1,7 @@
 #!/bin/bash
+set -e
 
+DIR="$(cd "$(dirname "$0")" && pwd)"
 echo "Installing ghostty config"
-
 mkdir -p ~/.config/ghostty
-ln -s "$(pwd)/ghostty/config" ~/.config/ghostty/config
+ln -sf "$DIR/config" ~/.config/ghostty/config

@@ -1,14 +1,14 @@
 #!/bin/bash
+set -e
 
-echo "Install zsh"
+DIR="$(cd "$(dirname "$0")" && pwd)"
+echo "Installing zsh config"
 
-# Remove old config...
-rm -rf ~/.zshrc
+if [[ ! -d ~/powerlevel10k ]]; then
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+fi
 
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+ln -sf "$DIR/p10k.zsh" ~/.p10k.zsh
+ln -sf "$DIR/zshrc" ~/.zshrc
 
-ln -s "$(pwd)/zsh/p10k.zsh" ~/.p10k.zsh
-ln -s "$(pwd)/zsh/zshrc" ~/.zshrc
-
-# change shell
-chsh -s $(which zsh)
+chsh -s "$(which zsh)"

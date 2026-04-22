@@ -1,7 +1,6 @@
 #!/bin/bash
+set -e
 
-echo "Install ideavimrc"
-# Remove old config
-rm -rf ~/.ideavimrc
-ln -s "$(pwd)/jetbrains/ideavimrc" ~/.ideavimrc
-
+DIR="$(cd "$(dirname "$0")" && pwd)"
+echo "Installing ideavimrc"
+ln -sf "$DIR/ideavimrc" ~/.ideavimrc

@@ -1,16 +1,13 @@
 #!/bin/bash
-echo "installing keyd and linking config"
+set -e
 
-pushd keyd
-git clone https://github.com/rvaiya/keyd src
-pushd src
-make && sudo make install
-popd
-rm -rf src
-popd
+DIR="$(cd "$(dirname "$0")" && pwd)"
+echo "Installing keyd config"
+
+git clone https://github.com/rvaiya/keyd "$DIR/src"
+make -C "$DIR/src" && sudo make -C "$DIR/src" install
+rm -rf "$DIR/src"
 
 sudo systemctl enable keyd && sudo systemctl start keyd
-
-sudo ln -s "$(pwd)/keyd/default.conf" /etc/keyd/default.conf
-
+sudo ln -sf "$DIR/default.conf" /etc/keyd/default.conf
 sudo keyd reload

@@ -1,0 +1,94 @@
+// Zellij config — tmux-like bindings with Ctrl-b prefix
+
+keybinds clear-defaults=true {
+    normal {
+        bind "Ctrl b" { SwitchToMode "Pane"; }
+    }
+
+    pane {
+        bind "Esc" "Ctrl b" { SwitchToMode "Normal"; }
+        // Splits
+        bind "v" { NewPane "Right"; SwitchToMode "Normal"; }
+        bind "s" { NewPane "Down"; SwitchToMode "Normal"; }
+        // Vim-like focus
+        bind "h" { MoveFocus "Left"; SwitchToMode "Normal"; }
+        bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
+        bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
+        bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
+        // Misc
+        bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+        bind "x" { CloseFocus; SwitchToMode "Normal"; }
+        bind "f" { ToggleFloatingPanes; SwitchToMode "Normal"; }
+        bind "[" { SwitchToMode "Scroll"; }
+        bind "r" { SwitchToMode "Resize"; }
+        bind "t" { SwitchToMode "Tab"; }
+        bind ":" { SwitchToMode "Session"; }
+    }
+
+    tab {
+        bind "Esc" "Ctrl b" { SwitchToMode "Normal"; }
+        bind "c" { NewTab; SwitchToMode "Normal"; }
+        bind "h" "Left"  { GoToPreviousTab; SwitchToMode "Normal"; }
+        bind "l" "Right" { GoToNextTab; SwitchToMode "Normal"; }
+        bind "x" { CloseTab; SwitchToMode "Normal"; }
+        bind "1" { GoToTab 1; SwitchToMode "Normal"; }
+        bind "2" { GoToTab 2; SwitchToMode "Normal"; }
+        bind "3" { GoToTab 3; SwitchToMode "Normal"; }
+        bind "4" { GoToTab 4; SwitchToMode "Normal"; }
+        bind "5" { GoToTab 5; SwitchToMode "Normal"; }
+        bind "6" { GoToTab 6; SwitchToMode "Normal"; }
+        bind "7" { GoToTab 7; SwitchToMode "Normal"; }
+        bind "8" { GoToTab 8; SwitchToMode "Normal"; }
+        bind "9" { GoToTab 9; SwitchToMode "Normal"; }
+    }
+
+    scroll {
+        bind "Ctrl c" "q" { SwitchToMode "Normal"; }
+        bind "j" "Down"   { ScrollDown; }
+        bind "k" "Up"     { ScrollUp; }
+        bind "Ctrl d"     { HalfPageScrollDown; }
+        bind "Ctrl u"     { HalfPageScrollUp; }
+        bind "Ctrl f" "PageDown" { PageScrollDown; }
+        bind "Ctrl b" "PageUp"   { PageScrollUp; }
+        bind "g"          { ScrollToTop; }
+        bind "G"          { ScrollToBottom; }
+        bind "/"          { SwitchToMode "Search"; }
+        // vi-style copy
+        bind "v"          { EditScrollback; }
+    }
+
+    search {
+        bind "Ctrl c" "Esc" { SwitchToMode "Normal"; }
+        bind "n"            { Search "down"; }
+        bind "N"            { Search "up"; }
+        bind "c"            { SearchToggleOption "CaseSensitivity"; }
+        bind "w"            { SearchToggleOption "WholeWord"; }
+    }
+
+    resize {
+        bind "Esc" "Ctrl b" { SwitchToMode "Normal"; }
+        bind "h" "Left"  { Resize "Increase Left"; }
+        bind "j" "Down"  { Resize "Increase Down"; }
+        bind "k" "Up"    { Resize "Increase Up"; }
+        bind "l" "Right" { Resize "Increase Right"; }
+        bind "H"         { Resize "Decrease Left"; }
+        bind "J"         { Resize "Decrease Down"; }
+        bind "K"         { Resize "Decrease Up"; }
+        bind "L"         { Resize "Decrease Right"; }
+        bind "="         { Resize "Increase"; }
+        bind "-"         { Resize "Decrease"; }
+    }
+
+    session {
+        bind "Esc" "Ctrl b" { SwitchToMode "Normal"; }
+        bind "d"            { Detach; }
+    }
+}
+
+// UI
+pane_frames false
+mouse_mode true
+scroll_buffer_size 50000
+copy_on_select true
+theme "tokyo-night-dark"
+default_layout "compact"
