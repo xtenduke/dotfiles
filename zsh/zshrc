@@ -80,9 +80,10 @@ if typeset -f cd >/dev/null 2>&1; then
 fi
 
 # Auto-start zellij (skip if already inside zellij or a non-interactive shell)
-if [[ -z "$ZELLIJ" && $- == *i* ]]; then
-    exec zellij
-fi
+# Auto-start Zellij (skip if already inside zellij or a non-interactive shell)
+# if [[ -z "$ZELLIJ" && $- == *i* ]]; then
+#     exec zellij
+# fi
 
 # Hey YOU - Don't add non generic things here!
 
