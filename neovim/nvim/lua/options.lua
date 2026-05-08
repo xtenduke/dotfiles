@@ -1,6 +1,7 @@
 require "nvchad.options"
 
 -- add yours here!
+vim.o.foldenable = false
 
 -- Right-click context menu — append after NvChad finishes setting up the menu
 vim.api.nvim_create_autocmd("VimEnter", {

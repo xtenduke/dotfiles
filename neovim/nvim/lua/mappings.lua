@@ -63,6 +63,12 @@ map("v", "<leader>qf", vim.lsp.buf.code_action, { desc = "Code action (visual)" 
 -- Redo with Shift+U
 map("n", "U", "<C-r>", { desc = "Redo" })
 
+-- Shift+HJKL for faster movement (5x)
+map("n", "H", "5h", { desc = "Move left fast" })
+map("n", "J", "5j", { desc = "Move down fast" })
+map("n", "K", "5k", { desc = "Move up fast" })
+map("n", "L", "5l", { desc = "Move right fast" })
+
 -- Smart paste: re-indent pasted text to match surrounding context
 -- Uses '[  '] marks that Neovim sets automatically after a paste
 map("n", "p", "p=`]", { desc = "Paste and re-indent" })
