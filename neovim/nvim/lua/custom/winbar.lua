@@ -3,6 +3,13 @@ local api = vim.api
 
 vim.o.showtabline = 0
 
+local function setup_hl()
+  api.nvim_set_hl(0, "WinbarActive",   { fg = "#ffffff", sp = "#61afef", underline = true, bold = true })
+  api.nvim_set_hl(0, "WinbarInactive", { fg = "#5c6370" })
+end
+setup_hl()
+vim.api.nvim_create_autocmd("ColorScheme", { callback = setup_hl })
+
 local exclude_ft = {
   "NvimTree", "neo-tree", "qf", "TelescopePrompt",
   "neotest-summary", "dap-repl", "dapui_scopes",
@@ -16,7 +23,7 @@ _G.WinbarBufs = function(win)
   local cur = api.nvim_win_get_buf(win)
   if not ok or not bufs or #bufs == 0 then
     local name = vim.fn.fnamemodify(api.nvim_buf_get_name(cur), ":t")
-    return name ~= "" and ("%#TabLine# " .. name .. " %*") or ""
+    return name ~= "" and ("%#WinbarInactive# " .. name .. " %*") or ""
   end
   local parts = {}
   for _, buf in ipairs(bufs) do
@@ -25,9 +32,9 @@ _G.WinbarBufs = function(win)
       if name == "" then name = "[No Name]" end
       local mod = vim.bo[buf].modified and " ●" or ""
       if buf == cur then
-        table.insert(parts, "%#TabLineSel# " .. name .. mod .. " %*")
+        table.insert(parts, "%#WinbarActive# " .. name .. mod .. " %*")
       else
-        table.insert(parts, "%#TabLine# " .. name .. mod .. " %*")
+        table.insert(parts, "%#WinbarInactive# " .. name .. mod .. " %*")
       end
     end
   end
