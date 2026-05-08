@@ -98,6 +98,21 @@ return {
     },
   },
   {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    config = function()
+      require "configs.dapui"
+    end,
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter" },
+    opts = {
+      highlight_changed_variables = true,
+      show_stop_reason = true,
+    },
+  },
+  {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
     opts = {
