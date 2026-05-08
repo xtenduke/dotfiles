@@ -15,12 +15,9 @@ M.base46 = {
 }
 
 -- M.nvdash = { load_on_startup = true }
--- M.ui = {
---       tabufline = {
---          lazyload = false
---      }
--- }
---
+M.ui = {
+  tabufline = { enabled = false },
+}
 vim.g["test#javascript#jest#file_pattern"] = "\\v(.*)\\.(test|spec)\\.(js|jsx|ts|tsx)$"
 
 return M

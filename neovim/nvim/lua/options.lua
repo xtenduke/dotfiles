@@ -27,3 +27,5 @@ end
 vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter" }, {
   callback = set_diagnostic_highlights,
 })
+
+require "custom.winbar"

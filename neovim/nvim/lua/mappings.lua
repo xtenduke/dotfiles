@@ -1,20 +1,15 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
-local tabufline = require "nvchad.tabufline"
+local winbar = require "custom.winbar"
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
--- Buffer navigation
--- Switch buffers with Ctrl + H / Ctrl + L (NvChad built-in)
-map("n", "<C-h>", function()
-  tabufline.prev()
-end, { desc = "Previous buffer" })
-map("n", "<C-l>", function()
-  tabufline.next()
-end, { desc = "Next buffer" })
-map("n", "<leader>bq", ":bp <BAR> bd #<CR>", { desc = "Close current buffer" })
+-- Per-split buffer navigation
+map("n", "<C-h>", function() winbar.nav("prev") end, { desc = "Previous buffer in split" })
+map("n", "<C-l>", function() winbar.nav("next") end, { desc = "Next buffer in split" })
+map("n", "<leader>bq", winbar.close, { desc = "Close buffer in split" })
 
 
 -- Searching
