@@ -16,9 +16,12 @@ map("n", "<leader>bq", winbar.close, { desc = "Close buffer in split" })
 local builtin = require "telescope.builtin"
 map("n", "<leader>o", builtin.find_files, { desc = "Search for files" })
 map("n", "<leader>f", builtin.live_grep, { desc = "Search inside files" })
-map("n", "<C-o>", builtin.find_files, { desc = "Search for files (exclude gitignored)" })
-map("n", "<C-f>", builtin.live_grep, { desc = "Search inside files (exclude gitignored)" })
-map("n", "?", builtin.current_buffer_fuzzy_find, { desc = "Search current buffer" })
+map("n", "<C-o>", builtin.find_files, { desc = "Search for files" })
+map("n", "<C-f>", builtin.live_grep, { desc = "Fuzzy search whole directory" })
+map("n", "n", "nzz", { desc = "Next search match (centered)" })
+map("n", "N", "Nzz", { desc = "Prev search match (centered)" })
+map("n", "<CR>", "nzz", { desc = "Next search match (centered)" })
+map("n", "<Esc>", "<cmd>nohl<CR>", { desc = "Clear search highlights" })
 
 -- Vim test
 map("n", "<leader>t", ":TestNearest<CR>", { desc = "Run nearest test" })

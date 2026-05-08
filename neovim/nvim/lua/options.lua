@@ -2,6 +2,10 @@ require "nvchad.options"
 
 -- add yours here!
 vim.o.foldenable = false
+vim.o.incsearch = true
+vim.o.hlsearch = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- Right-click context menu — append after NvChad finishes setting up the menu
 vim.api.nvim_create_autocmd("VimEnter", {
