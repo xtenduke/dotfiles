@@ -57,8 +57,28 @@ map("n", "<leader>f", function()
   vim.lsp.buf.format { async = true }
 end, { desc = "Format file" })
 map("v", "<leader>f", vim.lsp.buf.format, { desc = "Format selection" })
-map("n", "<leader>qf", vim.lsp.buf.code_action, { desc = "Quick fix / code action" })
-map("v", "<leader>qf", vim.lsp.buf.code_action, { desc = "Code action (visual)" })
+local hidden_actions = {
+  "disable prettier",
+  "show documentation",
+  "move to a new file",
+  "extract to type alias",
+  "generate 'get' and 'set' accessors",
+}
+
+local function filter_code_actions(action)
+  local title = action.title:lower()
+  for _, pattern in ipairs(hidden_actions) do
+    if title:find(pattern, 1, true) then return false end
+  end
+  return true
+end
+
+map("n", "<leader>qf", function()
+  vim.lsp.buf.code_action { filter = filter_code_actions }
+end, { desc = "Quick fix / code action" })
+map("v", "<leader>qf", function()
+  vim.lsp.buf.code_action { filter = filter_code_actions }
+end, { desc = "Code action (visual)" })
 
 -- Redo with Shift+U
 map("n", "U", "<C-r>", { desc = "Redo" })
