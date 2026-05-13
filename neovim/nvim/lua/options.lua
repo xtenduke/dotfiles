@@ -2,6 +2,7 @@ require "nvchad.options"
 
 -- add yours here!
 vim.o.foldenable = false
+vim.o.exrc = true
 vim.o.incsearch = true
 vim.o.hlsearch = true
 vim.o.ignorecase = true

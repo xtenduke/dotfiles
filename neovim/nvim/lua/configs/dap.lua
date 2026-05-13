@@ -255,23 +255,4 @@ dap.configurations.typescript = dap.configurations.javascript
 dap.configurations.javascriptreact = dap.configurations.javascript
 dap.configurations.typescriptreact = dap.configurations.javascript
 
--- Load .vscode/launch.json from the project root if it exists.
--- This runs on startup and whenever you change directory, so per-project
--- configs are picked up automatically.
-local function load_launch_json()
-  local path = vim.fn.getcwd() .. "/.vscode/launch.json"
-  if vim.fn.filereadable(path) == 1 then
-    require("dap.ext.vscode").load_launchjs(path, {
-      ["pwa-node"]   = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
-      ["node"]       = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
-      ["chrome"]     = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
-    })
-  end
-end
-
-load_launch_json()
-
-vim.api.nvim_create_autocmd("DirChanged", {
-  callback = load_launch_json,
-})
 

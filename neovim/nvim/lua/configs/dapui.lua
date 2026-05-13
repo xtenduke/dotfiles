@@ -25,6 +25,14 @@ dapui.setup {
   },
 }
 
+-- Defer sign definitions until after nvim-dap has set its own defaults
+vim.schedule(function()
+  vim.fn.sign_define("DapBreakpoint",          { text = "●", texthl = "DiagnosticError", linehl = "",      numhl = "" })
+  vim.fn.sign_define("DapBreakpointCondition", { text = "◆", texthl = "DiagnosticWarn",  linehl = "",      numhl = "" })
+  vim.fn.sign_define("DapBreakpointRejected",  { text = "●", texthl = "DiagnosticWarn",  linehl = "",      numhl = "" })
+  vim.fn.sign_define("DapStopped",             { text = "▶", texthl = "DiagnosticOk",    linehl = "DiffAdd", numhl = "" })
+end)
+
 -- Auto-open/close UI with the debug session
 dap.listeners.before.attach.dapui_config    = function() dapui.open() end
 dap.listeners.before.launch.dapui_config    = function() dapui.open() end
