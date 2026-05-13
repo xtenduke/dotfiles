@@ -7,3 +7,4 @@ map ge :action ReSharperGotoNextErrorInSolution<CR>
 map gr :action FindUsages<CR>
 set visualbell
 set noerrorbells
+set clipboard-=ideaput
