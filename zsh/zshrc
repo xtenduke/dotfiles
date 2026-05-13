@@ -60,6 +60,8 @@ fi
 export PATH="$HOME/scripts:$PATH"
 
 
+# Emacs line editing (ctrl+a, ctrl+u, etc)
+bindkey -e
 # Set backspace
 bindkey "^[[3~" delete-char
 
