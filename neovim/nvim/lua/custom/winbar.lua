@@ -12,8 +12,7 @@ vim.api.nvim_create_autocmd("ColorScheme", { callback = setup_hl })
 
 local exclude_ft = {
   "NvimTree", "neo-tree", "qf", "TelescopePrompt",
-  "neotest-summary", "dap-repl", "dapui_scopes",
-  "dapui_breakpoints", "dapui_stacks", "dapui_watches",
+  "neotest-summary",
 }
 
 -- Window ID is baked into the winbar string so this function always knows

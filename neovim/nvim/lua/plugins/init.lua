@@ -81,37 +81,6 @@ return {
     },
   },
 
-  -- DAP + test debugging
-  {
-    "mfussenegger/nvim-dap",
-    config = function()
-      require "configs.dap"
-    end,
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    dependencies = { "mfussenegger/nvim-dap" },
-    opts = {
-      ensure_installed = { "js-debug-adapter" },
-      automatic_installation = true,
-      handlers = {},
-    },
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-    config = function()
-      require "configs.dapui"
-    end,
-  },
-  {
-    "theHamsta/nvim-dap-virtual-text",
-    dependencies = { "mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter" },
-    opts = {
-      highlight_changed_variables = true,
-      show_stop_reason = true,
-    },
-  },
   {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
@@ -152,7 +121,6 @@ return {
       "nvim-neotest/nvim-nio",
       "nvim-neotest/neotest-jest",
       "antoinemadec/FixCursorHold.nvim",
-      "mfussenegger/nvim-dap",
     },
     config = function()
       require "configs.neotest"
