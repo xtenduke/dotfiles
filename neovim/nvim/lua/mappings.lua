@@ -34,10 +34,7 @@ map("t", "<C-o>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 -- Git
 map("n", "<leader>gb", ":BlameToggle<CR>", { desc = "Toggle git blame" })
 
--- LSP specific
-map("n", "gd", builtin.lsp_definitions, { desc = "Go to definition" })
-map("n", "gr", builtin.lsp_references, { desc = "Find references" })
-map("n", "gi", builtin.lsp_implementations, { desc = "Go to implementation" })
+-- LSP specific (gd/gr/gi set via LspAttach in lspconfig.lua to beat NvChad's buffer-local mappings)
 map("n", "K", vim.lsp.buf.hover, { desc = "Show hover info" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 map("n", "<leader>f", function()

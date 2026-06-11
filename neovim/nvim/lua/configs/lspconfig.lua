@@ -61,4 +61,40 @@ vim.lsp.enable "rust_analyzer"
 vim.lsp.config("roslyn", {})
 
 
--- read :h vim.lsp.config for changing options of lsp servers 
+-- Override NvChad's buffer-local LSP mappings so gd/gr/gi use Telescope
+-- (buffer-local mappings beat globals, so we need LspAttach to win the race)
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local map = vim.keymap.set
+    local buf = args.buf
+    local builtin = require "telescope.builtin"
+    local dropdown = require("telescope.themes").get_dropdown { previewer = false }
+
+    map("n", "gd", function()
+      vim.lsp.buf.definition({
+        on_list = function(options)
+          local items = options.items
+          if #items == 0 then return end
+          local first_file = items[1].filename
+          local all_same_file = true
+          for _, item in ipairs(items) do
+            if item.filename ~= first_file then
+              all_same_file = false
+              break
+            end
+          end
+          vim.fn.setqflist({}, " ", options)
+          if all_same_file then
+            vim.cmd "cfirst"
+          else
+            builtin.quickfix(dropdown)
+          end
+        end,
+      })
+    end, { buffer = buf, desc = "Go to definition" })
+    map("n", "gr", function() builtin.lsp_references(dropdown) end, { buffer = buf, desc = "Find references" })
+    map("n", "gi", function() builtin.lsp_implementations(dropdown) end, { buffer = buf, desc = "Go to implementation" })
+  end,
+})
+
+-- read :h vim.lsp.config for changing options of lsp servers
