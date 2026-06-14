@@ -1,0 +1,13 @@
+[Unit]
+Description=Write LTR ignore values to enable S0ix deep sleep
+After=network.target
+# debugfs must be mounted
+RequiresMountsFor=/sys/kernel/debug
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/ltr-ignore.sh
+
+[Install]
+WantedBy=multi-user.target

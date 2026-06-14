@@ -1,0 +1,11 @@
+[Unit]
+Description=Enable Intel workload hint for power-aware scheduling
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/sh -c 'echo 1 > /sys/devices/pci0000:00/0000:00:04.0/workload_hint/workload_hint_enable'
+
+[Install]
+WantedBy=multi-user.target
