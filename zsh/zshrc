@@ -89,3 +89,8 @@ fi
 
 # Hey YOU - Don't add non generic things here!
 
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/jake/.local/bin:$PATH"
+export PATH="$PATH:/home/jake/Development/flutter/bin"

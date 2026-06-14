@@ -1,11 +1,11 @@
-module systemd-sleep-fix 1.1;
+module systemd-sleep-fix 1.2;
 
 require {
     type systemd_sleep_t;
     type init_var_lib_t;
     class dir { create write add_name remove_name rmdir getattr setattr };
-    class file { create write unlink open read getattr };
+    class file { create write unlink open read getattr ioctl };
 }
 
 allow systemd_sleep_t init_var_lib_t:dir { create write add_name remove_name rmdir getattr setattr };
-allow systemd_sleep_t init_var_lib_t:file { create write unlink open read getattr };
+allow systemd_sleep_t init_var_lib_t:file { create write unlink open read getattr ioctl };
