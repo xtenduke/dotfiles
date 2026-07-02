@@ -9,9 +9,7 @@
 #   2. tlp/            — CPU power management
 #   3. modprobe/       — kernel module power settings
 #   4. kernel-params/  — GRUB kernel cmdline
-#   5. irq-affinity/   — pin IRQs to LP E-cores
-#   6. workload-hints/ — Intel workload hint
-#   7. gnome-power/    — GNOME settings (run as regular user)
+#   5. gnome-power/    — GNOME settings (run as regular user)
 #
 # BEFORE running sleep/ setup:
 #   sudo ./sleep/ltr-discover.sh
@@ -37,8 +35,6 @@ _run_root sleep
 _run_root tlp
 _run_root modprobe
 _run_root kernel-params
-_run_root irq-affinity
-_run_root workload-hints
 
 echo ""
 echo "=== gnome-power ==="

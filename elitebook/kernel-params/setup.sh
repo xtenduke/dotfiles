@@ -12,7 +12,6 @@ if [[ "$EUID" -ne 0 ]]; then
 fi
 
 PARAMS=(
-    "pcie_aspm=force"        # Force PCIe ASPM power saving on all devices
     "nmi_watchdog=0"         # Disable NMI watchdog (saves ~0.1W)
     "snd_hda_intel.power_save=1"  # Audio codec power saving
     "iwlwifi.power_save=1"   # Wi-Fi power saving

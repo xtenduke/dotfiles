@@ -22,3 +22,6 @@
 	cmd = meld \"$LOCAL\" \"$MERGED\" \"$REMOTE\" --output \"$MERGED\"
 [mergetool]
 	prompt = false
+[user]
+	name = Jake Laurie
+	email = jake.gordon.laurie@gmail.com
