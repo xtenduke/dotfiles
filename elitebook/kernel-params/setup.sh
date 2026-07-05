@@ -1,9 +1,8 @@
 #!/bin/bash
 # Adds power-saving kernel parameters via grubby (Fedora).
 #
-# Note: i915 PSR/FBC/DC params from the blog post are NOT included here —
-# this machine uses the Intel Xe driver (xe.force_probe=7d45), not i915.
-# PSR and power features are enabled by default in the Xe driver.
+# Using i915 driver (not Xe). xe.force_probe and i915.force_probe=! are NOT set —
+# the Xe driver caused kernel panics and hibernate failures on this hardware.
 set -e
 
 if [[ "$EUID" -ne 0 ]]; then

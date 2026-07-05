@@ -20,8 +20,8 @@ gsettings set org.gnome.desktop.session idle-delay 300
 gsettings set org.gnome.settings-daemon.plugins.power idle-dim true
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 600
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 1800
-gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'suspend'
-gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'suspend'
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'hibernate'
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'hibernate'
 
 # Stop gnome-software from waking up to check for updates in the background
 gsettings set org.gnome.software download-updates false

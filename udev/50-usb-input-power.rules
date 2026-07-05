@@ -1,0 +1,9 @@
+# Disable USB autosuspend for external input devices.
+# powertop --auto-tune sets all USB devices to autosuspend, causing
+# 1-5 second input freezes on keyboards and mice.
+
+# KB Paradise V60 Type R
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="7432", ATTR{idProduct}=="0658", ATTR{power/control}="on"
+
+# Logitech USB Receiver (wireless mouse)
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{idProduct}=="c539", ATTR{power/control}="on"
