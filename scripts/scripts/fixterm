@@ -1,0 +1,23 @@
+#!/bin/sh
+# Un-wedge a terminal left in a weird state by a program that died without
+# cleaning up (most often an SSH session killed by a network drop).
+#
+# Typical symptom: clicking in the terminal types "0;30;5M" / "0;30;5m" - those
+# are SGR mouse reports the dead remote app never turned back off. Others:
+# invisible cursor, no echo, stuck alt-screen, garbage on focus change.
+#
+# Unlike `reset`/`tput reset` this does not clear the screen or scrollback.
+
+printf '\033[?9l\033[?1000l\033[?1001l\033[?1002l\033[?1003l'  # mouse tracking off
+printf '\033[?1004l'                                           # focus reporting off
+printf '\033[?1005l\033[?1006l\033[?1015l\033[?1016l'          # mouse encodings off
+printf '\033[?2004l'                                           # bracketed paste off
+printf '\033[?1049l\033[?47l'                                  # leave alt screen
+printf '\033[?25h'                                             # show cursor
+printf '\033[?7h'                                              # wraparound on
+printf '\033[?1l\033>'                                         # normal cursor/keypad keys
+printf '\033[r'                                                # reset scroll region
+printf '\033[m\033(B\017'                                      # reset attrs + charset
+stty sane 2>/dev/null
+
+echo "terminal reset"

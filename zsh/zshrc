@@ -65,6 +65,18 @@ bindkey -e
 # Set backspace
 bindkey "^[[3~" delete-char
 
+# Maybe disable mouse focus
+# This is to fix an issue where a ssh session that caputed mouse tracking died (network lost or whatever)
+if [[ -o interactive ]]; then
+  autoload -Uz add-zsh-hook
+  _reset_input_reporting() {
+    [[ -t 1 ]] || return
+    # 9/1000/1001/1002/1003: tracking modes, 1004: focus, 1005/1006/1015/1016: encodings
+    print -n $'\e[?9l\e[?1000l\e[?1001l\e[?1002l\e[?1003l\e[?1004l\e[?1005l\e[?1006l\e[?1015l\e[?1016l'
+  }
+  add-zsh-hook precmd _reset_input_reporting
+fi
+
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/emulator
