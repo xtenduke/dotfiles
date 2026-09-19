@@ -6,6 +6,7 @@ cd "$(dirname "$0")"
 ./alacritty/install.sh
 ./ghostty/install.sh
 ./git/install.sh
+./kitty/install.sh
 ./neovim/install.sh
 ./tmux/install.sh
 ./zellij/install.sh
