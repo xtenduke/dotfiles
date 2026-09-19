@@ -3,6 +3,7 @@ set -e
 
 cd "$(dirname "$0")"
 
+./fonts/install.sh
 ./alacritty/install.sh
 ./ghostty/install.sh
 ./git/install.sh
